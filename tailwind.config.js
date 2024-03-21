@@ -22,5 +22,9 @@ module.exports = {
       }
     }
   },
+  // 为了防止tailwind与antd产生样式冲突
+  corePlugins: {
+    preflight: false
+  },
   plugins: []
 }
