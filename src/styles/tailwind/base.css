@@ -1,0 +1,9 @@
+/* 添加自定义tailwind基础层样式,一般用于覆盖一些tailwind中默认的基础样式 */
+
+/* 如果要引用tailwind自带的值或tailwind.config.js的theme中配置的值,可以通过 @apply指令或theme函数获取 */
+@layer base {
+  html {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+  }
+}
