@@ -26,5 +26,16 @@ module.exports = {
   corePlugins: {
     preflight: false
   },
+  // 如果在某些情况下实在需要使用不完整类名来拼装
+  safelist: [
+    'text-red',
+    'text-green',
+    {
+      // 使用正则匹配多个类
+      pattern: /bg-(red|green|blue)-(100|200|300)/,
+      // 同时把匹配到的类的修饰符类也加上
+      variants: ['hover', 'focus']
+    }
+  ],
   plugins: []
 }
