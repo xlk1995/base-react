@@ -6,9 +6,11 @@ import 'dayjs/locale/zh-cn'
 import zhCN from 'antd/locale/zh_CN'
 
 import { FC } from 'react'
+import { RouterProvider } from 'react-router-dom'
 
-import $styles from './app.module.css'
+import $styles from './app.module.scss'
 // 包装应用的时候需要使用StyleProvider取消Antd的降权（同样是为了防止tailwind与antd产生样式冲突），并且在ConfigProvider中把背景取消，然后换个紧凑皮肤theme.defaultAlgorithm
+import router from './router'
 
 const App: FC = () => {
   return (
@@ -29,9 +31,7 @@ const App: FC = () => {
       <StyleProvider hashPriority='high'>
         <AntdApp>
           <div className={$styles.app}>
-            <div className={$styles.container}>
-              hello， React
-            </div>
+            <RouterProvider router={router} />
           </div>
         </AntdApp>
       </StyleProvider>

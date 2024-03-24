@@ -1,0 +1,8 @@
+/* src/app.module.css */
+@mixin bfc {
+  @apply w-full h-full overflow-hidden bg-yellow-50;
+}
+
+.app {
+  @include bfc;
+}
