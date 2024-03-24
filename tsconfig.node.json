@@ -5,5 +5,5 @@
     "module": "CommonJS",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "./scripts"]
+  "include": ["vite.config.mts", "./scripts"]
 }

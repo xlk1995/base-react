@@ -1,4 +1,7 @@
 // scripts/types.ts
-import { ConfigEnv, UserConfig } from "vite";
+import { ConfigEnv, UserConfig } from 'vite'
 
-export type Configure = (params: ConfigEnv, isBuild: boolean) => UserConfig;
+export type Configure = (
+  params: ConfigEnv,
+  isBuild: boolean
+) => UserConfig

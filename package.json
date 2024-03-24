@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "pnpm lint:es && pnpm lint:style",
     "lint:es": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
     "lint:style": "stylelint \"**/*.css\" --fix --cache --cache-location node_modules/.cache/stylelint/",
     "preview": "vite preview"
