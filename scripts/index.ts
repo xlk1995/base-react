@@ -20,7 +20,7 @@ export const createConfig = (
       },
       css: {
         modules: {
-          localsConvention: 'camelCaseOnly'
+          localsConvention: 'camelCase'
         }
       },
       plugins: createPlugins(isBuild)

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 
 import HomePage from '@/views/homePage'
-import { Login } from '@/views/login'
+import Login from '@/views/login'
 import { Register } from '@/views/register'
 import { Error404 } from '@/components/error403'
 import { Error403 } from '@/components/error404'

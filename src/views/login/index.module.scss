@@ -1,0 +1,14 @@
+.login {
+  background: url('/imgs/login_bg.jpeg');
+
+  @apply h-screen w-screen bg-cover bg-center;
+
+  .login-wrapper {
+    @apply w-[500px]  absolute right-[10%] top-1/2 -translate-y-1/2 
+     text-[16px] bg-white p-[40px];
+
+    .login-title {
+      @apply p-[10px] text-center leading-[1.5];
+    }
+  }
+}
