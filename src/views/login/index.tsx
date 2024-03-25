@@ -1,18 +1,32 @@
-import { Button, Form, FormProps, Input } from 'antd'
+import { Button, Form, FormProps, Input, App } from 'antd'
+
+import { useState } from 'react'
+
+import { Login as LoginType } from '@/types/api'
+
+import { login } from '@/api/user'
+
+import storage from '@/utils/storage'
 
 import $styles from './index.module.scss'
 
-type FieldType = {
-  username?: string
-  password?: string
-  remember?: string
-}
-const onFinish: FormProps<FieldType>['onFinish'] =
-  values => {
-    console.log('Success:', values)
-  }
-
 const Login = () => {
+  const { message } = App.useApp()
+  const [loading, setLoading] = useState(false)
+  const onFinish: FormProps<LoginType.Params>['onFinish'] =
+    async values => {
+      try {
+        setLoading(true)
+        const data = await login(values)
+        setLoading(false)
+        storage.set('token', data.token)
+        message.success('登录成功')
+        // const params = new URLSearchParams(location.search)
+        // location.href = params.get('callback') || '/  welcome'
+      } catch (error) {
+        setLoading(false)
+      }
+    }
   return (
     <div className={$styles.login}>
       <div className={$styles['login-wrapper']}>
@@ -24,8 +38,8 @@ const Login = () => {
           onFinish={onFinish}
           autoComplete='off'
         >
-          <Form.Item<FieldType>
-            name='username'
+          <Form.Item<LoginType.Params>
+            name='credential'
             rules={[
               {
                 required: true,
@@ -36,7 +50,7 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item<LoginType.Params>
             name='password'
             rules={[
               {
@@ -49,7 +63,12 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type='primary' htmlType='submit' block>
+            <Button
+              type='primary'
+              htmlType='submit'
+              block
+              loading={loading}
+            >
               login
             </Button>
           </Form.Item>

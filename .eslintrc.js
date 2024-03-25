@@ -138,6 +138,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 0,
     '@typescript-eslint/no-unsafe-call': 0,
     '@typescript-eslint/no-unsafe-argument': 0,
+    '@typescript-eslint/no-namespace': 0,
 
     /* ********************************** React and Hooks ********************************** */
     'react/jsx-uses-react': 1,
@@ -179,7 +180,9 @@ module.exports = {
           some: ['nesting', 'id']
         }
       }
-    ]
+    ],
+    /* ********************************** global ********************************** */
+    'no-restricted-globals': 0
   },
 
   settings: {
