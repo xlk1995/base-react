@@ -1,0 +1,14 @@
+.nav-footer {
+  @apply bg-white flex flex-col items-center leading-[30px] pt-[20px];
+
+  .top {
+    a {
+      @apply text-[#00B96B] mr-[10px] text-[18px];
+      text-decoration: underline;
+    }
+  }
+
+  .bottom {
+    @apply text-gray-400;
+  }
+}

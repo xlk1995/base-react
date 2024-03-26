@@ -1,0 +1,5 @@
+.content {
+  @apply p-[24px];
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
