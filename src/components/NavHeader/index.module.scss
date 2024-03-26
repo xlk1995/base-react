@@ -1,0 +1,8 @@
+.nav-header {
+  @apply h-[64px] bg-white px-[20px]
+    flex items-center justify-between;
+
+  .left {
+    @apply flex;
+  }
+}

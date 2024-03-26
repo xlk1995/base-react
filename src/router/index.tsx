@@ -9,11 +9,21 @@ import Login from '@/views/login'
 import { Register } from '@/views/register'
 import { Error404 } from '@/components/error403'
 import { Error403 } from '@/components/error404'
+import Layout from '@/layout'
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <HomePage />
+    element: <Navigate to='/welcome' />
+  },
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: '/welcome',
+        element: <HomePage />
+      }
+    ]
   },
   {
     path: '/login',
