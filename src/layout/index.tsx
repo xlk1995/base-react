@@ -1,12 +1,10 @@
 import React from 'react'
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined
-} from '@ant-design/icons'
-import { Layout, Menu, theme } from 'antd'
+
+import { Layout, theme } from 'antd'
 
 import NavHeader from '@/components/NavHeader'
+import NavFooter from '@/components/NavFooter'
+import NavMenu from '@/components/NavMenu'
 
 const { Sider, Content } = Layout
 
@@ -18,29 +16,7 @@ const App: React.FC = () => {
   return (
     <Layout className='h-screen'>
       <Sider trigger={null} collapsible>
-        <div className='demo-logo-vertical' />
-        <Menu
-          theme='dark'
-          mode='inline'
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1'
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2'
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3'
-            }
-          ]}
-        />
+        <NavMenu />
       </Sider>
       <Layout>
         <NavHeader />
@@ -55,6 +31,7 @@ const App: React.FC = () => {
         >
           Content
         </Content>
+        <NavFooter />
       </Layout>
     </Layout>
   )
