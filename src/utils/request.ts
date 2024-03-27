@@ -69,7 +69,7 @@ interface IConfig {
 export default {
   get<T>(
     url: string,
-    params: Record<string, any>,
+    params?: Record<string, any>,
     options: IConfig = {
       showLoading: true,
       showError: true

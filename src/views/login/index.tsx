@@ -2,9 +2,11 @@ import { Button, Form, FormProps, Input, App } from 'antd'
 
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Login as LoginType } from '@/types/api'
 
-import { login } from '@/api/user'
+import { apiLogin } from '@/api/user'
 
 import storage from '@/utils/storage'
 
@@ -13,16 +15,16 @@ import $styles from './index.module.scss'
 const Login = () => {
   const { message } = App.useApp()
   const [loading, setLoading] = useState(false)
+  const nav = useNavigate()
   const onFinish: FormProps<LoginType.Params>['onFinish'] =
     async values => {
       try {
         setLoading(true)
-        const data = await login(values)
+        const data = await apiLogin(values)
         setLoading(false)
         storage.set('token', data.token)
         message.success('登录成功')
-        // const params = new URLSearchParams(location.search)
-        // location.href = params.get('callback') || '/  welcome'
+        nav('/welcome')
       } catch (error) {
         setLoading(false)
       }

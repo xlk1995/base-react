@@ -3,6 +3,8 @@ import { MenuUnfoldOutlined } from '@ant-design/icons'
 import { Breadcrumb, Dropdown, Switch } from 'antd'
 import type { MenuProps } from 'antd'
 
+import useUserStore from '@/store'
+
 import $styles from './index.module.scss'
 
 const breadItems = [
@@ -35,27 +37,30 @@ const items: MenuProps['items'] = [
     )
   }
 ]
-const NavHeader = () => (
-  <div className={$styles['nav-header']}>
-    <div className={$styles.left}>
-      <MenuUnfoldOutlined className='pr-[10px]' />
-      <Breadcrumb items={breadItems} />
+const NavHeader = () => {
+  const userInfo = useUserStore(state => state.userInfo)
+  return (
+    <div className={$styles['nav-header']}>
+      <div className={$styles.left}>
+        <MenuUnfoldOutlined className='pr-[10px]' />
+        <Breadcrumb items={breadItems} />
+      </div>
+      <div className={$styles.right}>
+        <Switch
+          checkedChildren='默认'
+          unCheckedChildren='暗黑'
+          defaultChecked
+        />
+        <Dropdown
+          menu={{ items }}
+          className='pl-[10px] cursor-pointer'
+          trigger={['click']}
+        >
+          <span>{userInfo.username}</span>
+        </Dropdown>
+      </div>
     </div>
-    <div className={$styles.right}>
-      <Switch
-        checkedChildren='默认'
-        unCheckedChildren='暗黑'
-        defaultChecked
-      />
-      <Dropdown
-        menu={{ items }}
-        className='pl-[10px] cursor-pointer'
-        trigger={['click']}
-      >
-        <span>梁铙靖</span>
-      </Dropdown>
-    </div>
-  </div>
-)
+  )
+}
 
 export default NavHeader

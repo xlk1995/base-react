@@ -10,3 +10,14 @@ export interface BaseResult {
   message: string[]
   statusCode: number
 }
+
+export namespace User {
+  export interface IUserInfo {
+    id: string
+    nickname: string
+    username: string
+    phone?: string
+    email?: string
+    permissions?: any[]
+  }
+}
