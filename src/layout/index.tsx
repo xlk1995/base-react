@@ -24,6 +24,7 @@ const App: React.FC = () => {
           <Outlet />
           <NavFooter />
         </Content>
+        <NavFooter />
       </Layout>
     </Layout>
   )
