@@ -2,7 +2,7 @@ export function createServer() {
   return {
     proxy: {
       '/api': {
-        target: 'https://api.imooc-front.lgdsunday.club',
+        target: 'http://localhost:3001',
         changeOrigin: true
       }
     }
