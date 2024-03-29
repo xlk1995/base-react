@@ -5,6 +5,7 @@ import merge from 'deepmerge'
 import { Configure } from './types'
 import { pathResolve } from './utils'
 import { createPlugins } from './plugins'
+import { createServer } from './server'
 
 export const createConfig = (
   params: ConfigEnv,
@@ -23,7 +24,8 @@ export const createConfig = (
           localsConvention: 'camelCaseOnly'
         }
       },
-      plugins: createPlugins(isBuild)
+      plugins: createPlugins(isBuild),
+      server: createServer()
     },
     typeof configure === 'function'
       ? configure(params, isBuild)
