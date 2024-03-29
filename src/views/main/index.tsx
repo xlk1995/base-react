@@ -1,5 +1,11 @@
+import Navigation from './components/navigation'
+
 const Main = () => {
-  return <div>我是移动端首页</div>
+  return (
+    <div>
+      <Navigation />
+    </div>
+  )
 }
 
 export default Main

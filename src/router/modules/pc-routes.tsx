@@ -1,11 +1,11 @@
 import type { RouteObject } from 'react-router-dom'
 
-import Home from '@/views/home'
+import Main from '@/views/main'
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Home />
+    element: <Main />
   }
 ]
 
