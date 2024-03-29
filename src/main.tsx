@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import '@/styles/index.css'
 
-import App from './app.tsx'
+import App from './App.tsx'
 
 ReactDOM.createRoot(
   document.getElementById('root')!
