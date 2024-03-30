@@ -19,6 +19,16 @@ module.exports = {
       fontFamily: {
         standard: 'var(--font-family-standard)',
         firacode: 'var(--font-family-firacode)'
+      },
+      fontSize: {
+        xs: ['0.25rem', '0.35rem'],
+        sm: ['0.35rem', '0.45rem'],
+        base: ['0.45rem', '0.55rem'],
+        lg: ['0.55rem', '0.65rem'],
+        xl: ['0.65rem', '0.75rem']
+      },
+      boxShadow: {
+        'l-white': '-10px 0 10 white'
       }
     }
   },

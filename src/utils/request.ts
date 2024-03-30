@@ -23,8 +23,11 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   response => {
-    const { data } = response
-    return data.data
+    const { data, success, message } = response.data
+    if (success) {
+      return data
+    }
+    return Promise.reject(message)
   },
   (error: AxiosError) => {
     return Promise.reject(error)

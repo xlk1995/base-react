@@ -17,3 +17,24 @@ export const IsMobileTerminal = () => {
 //     navigator.userAgent
 //   )
 // }
+
+// 什么是rem， 是html的fontSize，给定一个最大值
+
+/**
+ * 动态设置rem
+ */
+export const UseREM = () => {
+  const MAX_FONT_SIZE = 40
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const html = document.querySelector(
+      'html'
+    ) as HTMLElement
+
+    let fontSize = window.innerWidth / 10
+    fontSize =
+      fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize
+
+    html.style.fontSize = `${fontSize}px`
+  })
+}
