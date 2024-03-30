@@ -11,6 +11,9 @@ dependencies:
   axios:
     specifier: ^1.6.8
     version: 1.6.8
+  classnames:
+    specifier: ^2.5.1
+    version: 2.5.1
   deepmerge:
     specifier: ^4.3.1
     version: 4.3.1
@@ -1604,6 +1607,10 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
     dev: true
+
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
 
   /clone@2.1.2:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}

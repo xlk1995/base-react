@@ -1,6 +1,8 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 
 import { useScroll } from 'ahooks'
+
+import classnames from 'classnames'
 
 import { MSvgIcon } from '@/libs'
 
@@ -11,7 +13,7 @@ const MobileNavigation: FC<PropsType> = props => {
 
   const sliderStyleInit = {
     transform: 'translateX(0px)',
-    width: '60px'
+    width: '45px'
   }
 
   const [sliderStyle, setSliderStyle] =
@@ -23,9 +25,6 @@ const MobileNavigation: FC<PropsType> = props => {
       refs.current.push(el)
     }
   }
-  useEffect(() => {
-    console.log(refs, '=====')
-  }, [])
 
   const ulRef = useRef(null)
   const ulScrollLeft = useScroll(ulRef)?.left
@@ -63,18 +62,26 @@ const MobileNavigation: FC<PropsType> = props => {
             className='h-1.5 w-1.5'
           />
         </li>
-        {categorys.map((c, index) => (
-          <li
-            key={c.id}
-            className='px-1.5 py-[5px] z-10 duration-200 shrink-0 last:mr-1'
-            ref={setRefItem}
-            onClick={() => handleClick(index)}
-          >
-            {c.name}
-          </li>
-        ))}
+        {categorys.map((c, index) => {
+          const commonClass =
+            'px-1.5 py-[5px] z-10 duration-200 shrink-0 last:mr-1'
+          const activeClass = 'text-white'
+          const itemClasses = classnames({
+            [commonClass]: true,
+            [activeClass]: index === currentIndex
+          })
+          return (
+            <li
+              key={c.id}
+              className={itemClasses}
+              ref={setRefItem}
+              onClick={() => handleClick(index)}
+            >
+              {c.name}
+            </li>
+          )
+        })}
       </ul>
-      {ulScrollLeft}
     </div>
   )
 }
