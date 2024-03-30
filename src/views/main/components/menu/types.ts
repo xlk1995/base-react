@@ -7,6 +7,5 @@ export interface ICategory {
 
 export interface PropsType {
   categorys: ICategory[]
-  handleVisible?: (isVisible: boolean) => void
-  isVisible?: boolean
+  handleChangeMenu?: (index: number) => void
 }

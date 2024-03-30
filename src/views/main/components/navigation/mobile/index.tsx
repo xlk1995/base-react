@@ -1,4 +1,9 @@
-import { FC, useRef, useState } from 'react'
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState
+} from 'react'
 
 import { useScroll } from 'ahooks'
 
@@ -8,18 +13,31 @@ import { MSvgIcon } from '@/libs'
 
 import { PropsType } from './types'
 
-const MobileNavigation: FC<PropsType> = props => {
-  const { categorys } = props
+interface ChildMethods {
+  setValue: (newValue: number) => void
+}
+
+const MobileNavigation = forwardRef<
+  ChildMethods,
+  PropsType
+>((props, ref) => {
+  const { categorys, isVisible, handleVisible } = props
 
   const sliderStyleInit = {
     transform: 'translateX(0px)',
     width: '45px'
   }
+  const setValue = (index: number) => {
+    handleClick(index)
+  }
+  useImperativeHandle(ref, () => ({
+    setValue
+  }))
 
   const [sliderStyle, setSliderStyle] =
     useState(sliderStyleInit)
-  //
   const refs = useRef<HTMLLIElement[]>([])
+
   const setRefItem = (el: HTMLLIElement) => {
     if (el) {
       refs.current.push(el)
@@ -32,8 +50,6 @@ const MobileNavigation: FC<PropsType> = props => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const handleClick = (index: number) => {
-    console.log(index)
-
     setCurrentIndex(index)
     const { left, width } =
       refs.current[index].getBoundingClientRect()
@@ -42,6 +58,11 @@ const MobileNavigation: FC<PropsType> = props => {
       transform: `translateX(${ulScrollLeft! + left - 10}px)`,
       width: `${width}px`
     })
+  }
+  const handleClickHa = () => {
+    if (handleVisible) {
+      handleVisible(!isVisible)
+    }
   }
 
   return (
@@ -56,7 +77,10 @@ const MobileNavigation: FC<PropsType> = props => {
           style={sliderStyle}
         />
         {/* 汉堡 */}
-        <li className='fixed top-0 right-[-1px] h-4 flex items-center bg-white z-20 shadow-l-white'>
+        <li
+          className='fixed top-0 right-[-1px] h-4 flex items-center bg-white z-20 shadow-l-white'
+          onClick={handleClickHa}
+        >
           <MSvgIcon
             name='hamburger'
             className='h-1.5 w-1.5'
@@ -84,6 +108,6 @@ const MobileNavigation: FC<PropsType> = props => {
       </ul>
     </div>
   )
-}
+})
 
 export default MobileNavigation
