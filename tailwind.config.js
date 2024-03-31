@@ -29,13 +29,17 @@ module.exports = {
       },
       boxShadow: {
         'l-white': '-10px 0 10 white'
+      },
+      height: {
+        header: '72px',
+        main: 'calc(100vh - 72px)'
       }
     }
   },
   // 为了防止tailwind与antd产生样式冲突
-  corePlugins: {
-    preflight: false
-  },
+  // corePlugins: {
+  //   preflight: false
+  // },
   // 如果在某些情况下实在需要使用不完整类名来拼装
   safelist: [
     'text-red',
