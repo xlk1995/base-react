@@ -8,7 +8,7 @@ import {
 
 import { useClickAway } from 'ahooks'
 
-import { MSvgIcon } from '..'
+import { MButton, MSvgIcon } from '..'
 
 // 监听以下事件: clear focus blur search
 
@@ -48,6 +48,8 @@ export const Search: FC<PropsType> = props => {
     if (onClear) onClear()
   }
   const handleSearch = () => {
+    console.log(111)
+
     if (onSearch) onSearch(inputVal)
   }
   const handleBlur = () => {
@@ -109,12 +111,14 @@ export const Search: FC<PropsType> = props => {
       {/* 分割线 */}
       <div className=' absolute top-[50%] translate-y-[-50%] right-[64px] h-1.5 w-[1px]  bg-zinc-200 opacity-0 group-hover:opacity-100' />
       {/* 搜索按钮 todo  */}
-      <button
-        className='absolute top-[50%] translate-y-[-50%] right-2'
-        onClick={handleSearch}
-      >
-        按钮
-      </button>
+      <div className='absolute top-[50%] translate-y-[-50%] right-2'>
+        <MButton
+          onClick={handleSearch}
+          icon='search'
+          color='#fff'
+        />
+      </div>
+
       {Children && isFocus && (
         <div
           className='absolute top-[100%] w-full max-h-[384px] left-0 p-2 bg-white rounded border
